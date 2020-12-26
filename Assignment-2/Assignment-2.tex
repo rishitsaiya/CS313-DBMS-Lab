@@ -1,0 +1,111 @@
+\title{CS313, Lab - 2} % You may change the title if you want.
+% \subtitle{Hello}
+\author{Rishit Saiya, 180010027}
+
+\date{\today}
+
+\documentclass[12pt]{article}
+\usepackage{fullpage}
+\usepackage{enumitem}
+\usepackage{amsmath,mathtools}
+\usepackage{amssymb}
+\usepackage[super]{nth}
+\usepackage{textcomp}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\begin{document}
+\maketitle
+
+%---------------------------------------------------------------------
+
+\section{}
+
+classroom: building,room\_number \\
+department: dept\_name \\
+course: course\_id, dept\_name \\
+instructor: ID, name, dept\_name \\
+section: course\_id, sec\_id, semester, year, building, room\_number \\
+teaches: ID, course\_id, sec\_id, semester, year \\
+student: ID, dept\_name, name \\
+takes: ID, course\_id, sec\_id, semester, year \\
+advisor: s\_ID, i\_ID \\
+time\_slot: time\_slot\_i d, day, start\_hr, start\_min \\
+prereq: course\_id, prereq\_id \\
+%---------------------------------------------------------------------
+
+\section{}
+Student Name: Zhang \\
+Student ID: 00128 \\
+Department Name: Comp. Sci. \\
+Courses Taken: CS101, CS347 \\
+Course Names: CS101 $\rightarrow{}$ Intro. to Computer Science , CS347 $\rightarrow{}$ Database System  Concepts\\
+Grades: CS101 $\rightarrow{}$ A, CS347 $\rightarrow{}$ A- \\
+Credits: CS101 $\rightarrow{}$ 4, CS347 $\rightarrow{}$ 3 \\
+Instructors Names: CS101 $\rightarrow{}$ Srinivasan, Katz, Brandt \& CS347 $\rightarrow{}$ Srinivasan, Katz, Brandt \\
+Year: 2017 \\
+Semester: Fall \\
+Section ID: 1 \\
+Total Credits: 102 \\
+Advisor: Katz \\
+Building: Taylor \\
+Budget: 100000 \\
+
+
+The following queries were executed to get above information: \\
+\begin{verbatim}
+    select * from student natural join takes
+    select * from student natural join department
+    select * from student natural join classroom
+    select * from student natural join course
+    select * from department natural join instructor
+    select * from course natural join instructor
+\end{verbatim}
+
+Alternatively, the query can be optimized as follows:
+\begin{verbatim}
+    select * from student,department,takes,advisor,instructor where
+    student.name = 'Zhang' and advisor.s_ID = student.ID and student.ID = takes.ID and department.dept_name = student.dept_name and
+    instructor.ID = advisor.i_ID
+    
+\end{verbatim}
+%---------------------------------------------------------------------
+\section{}
+%---------------------------------------------------------------------
+
+\section{}
+\begin{enumerate}[label=(\alph*)]
+    \item 
+        \begin{verbatim}
+    select distinct ID as Student_ID, name as Student_Name from (select
+    distinct * from student natural join classroom, department where
+    student.dept_name == department.dept_name and department.building ==
+    classroom.building) where building == 'Taylor' and dept_name == 'Comp.
+    Sci.'
+        \end{verbatim}
+    \item 
+        \begin{verbatim}
+    select name as Student_Name from (select distinct * from student
+    natural join takes where student.ID==takes.ID) where grade=='A'
+    intersect select name from (select distinct * from student natural
+    join takes where student.ID==takes.ID) where grade=='C'
+        \end{verbatim}
+        
+    \item
+        \begin{verbatim}
+    select distinct building,room_number from (select distinct * from classroom
+    natural join section,time_slot where
+    time_slot.time_slot_id==section.time_slot_id) where day=='W'
+        \end{verbatim}
+\end{enumerate}
+
+        
+
+
+
+%---------------------------------------------------------------------
+\end{document}
