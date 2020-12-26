@@ -1,0 +1,125 @@
+\title{CS313, Lab - 1} % You may change the title if you want.
+% \subtitle{Hello}
+\author{Rishit Saiya, 180010027}
+
+\date{\today}
+
+\documentclass[12pt]{article}
+\usepackage{fullpage}
+\usepackage{enumitem}
+\usepackage{amsmath,mathtools}
+\usepackage{amssymb}
+\usepackage[super]{nth}
+\usepackage{textcomp}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\begin{document}
+\maketitle
+
+%---------------------------------------------------------------------
+
+\section{}
+\subsection{} \\
+Michael Ralph Stonebraker is a computer scientist who specializes in database research. Currently he is a Professor Emeritus at UC Berkeley and an adjunct professor at MIT. He is an editor for the book Readings in Database Systems.
+He won Turing Award in 2014. His research and products are central to many relational database systems. He is also the founder of many database companies, including Ingres Corporation, Paradigm4, etc.
+
+Source: \href{https://en.wikipedia.org/wiki/Michael_Stonebraker}{Wiki - Micheal Stonebreaker} \\
+
+Edgar Frank Codd was an English Computer Scientist who, while working for IBM, invented the relational model for database management, the theoretical basis for relational databases and relational database management systems. He coined the term Online analytical processing (OLAP) and wrote the "twelve laws of online analytical processing". He received the Turing Award in 1981, and in 1994 he was inducted as a Fellow of the Association for Computing Machinery. His relational model, a very influential general theory of data management, remains his most mentioned, analyzed and celebrated accomplishment.
+
+Source: \href{https://en.wikipedia.org/wiki/Edgar_F._Codd}{Wiki - Edgar Frank Codd} \\
+
+\subsection{}
+A database application is a computer technology whose main purpose is entering and retrieving information from a computer database. Modern database applications facilitate simultaneous updates and queries from multiple users. 
+Some of the database applications are Amazon, Oracle relational database, eBay, Facebook, Google, etc.
+Back in mid-1990s, it became more common to build database applications with a Web interfaces. They had an advantage that it could be used in devices of various sizes, with different hardware components, and with different operating systems.
+
+Source: \href{https://en.wikipedia.org/wiki/Database_application}{Wiki - Database Application} \\
+
+A data model organizes different elements of data and standardizes on the basis of their relation to one another and to the properties of real-world entities. Data models are mainly specified by a data specialists, data librarians, or digital humanities scholars in a data modeling notation. These notations are represented in graphical form. A data model main function remains to determine the structure of data. In the context of programming languages, a data model can be sometimes referred as a data structure. \\
+\textbf{\textit{For Example:}} Some of the data models are Flat model, Hierarchical model, Network model, Relational model, etc.
+
+Source: \href{https://en.wikipedia.org/wiki/Data_model}{Wiki - Data Model} \\
+
+%---------------------------------------------------------------------
+
+\section{}
+Some large database applications that have a huge database size and large number of transactions are as follows:
+\begin{itemize}
+    \item Bookings: GoIbibo, RedBus, Oyo
+    \item Payements: Paytm, PhonePe
+    \item Others: Dream11, Flexcube, Zerodha, UpStox
+\end{itemize}
+
+Source: \href{https://www.softwaretestinghelp.com/database-management-software/}{Large Scale DB Apps},  \href{https://techrrival.com/best-upi-apps-in-india/}{UPI - India based}
+%---------------------------------------------------------------------
+
+\section{} 
+\textbf{OLTP:} \\
+Online Transactional Processing or OLTP is collection/class of software programs which are capable of supporting the applications which are Transaction-Oriented. These systems are designed to support on-line transaction and process query quickly on the Internet.If a transaction fails, built-in system logic ensures data integrity. \\
+\textbf{\textit{For Example:}} Telemarketers entering telephone survey results, POS (point of sale) system of any supermarket, Sending a text message, etc.
+
+Source: \href{https://database.guide/what-is-oltp/}{OLTP Reference}\\  
+
+\textbf{OLAP:} \\
+On-Line Analytical Processing or OLAP is a classification of software programs which authorizes different professionals like analysts, executives and managers to get an overview into information through fast, consistent, interactive channel access in a wide variety of possible views of data. Since most businesses data have multiple dimensions i.e., multiple categories into which the data are broken down for presentation, tracking, or analysis, OLAP is the most convenient way to process data at multiple dimensions. \\
+\textbf{\textit{For Example:}} Business reporting for sales, Marketing, Management Reporting, Business Process Management (BPM), Budgeting and Forecasting, Financial Reporting, etc.
+
+Source: \href{https://olap.com/olap-definition/}{OLAP Reference} \\
+
+Table 1 shows the differences between OLTP \& OLAP over different parameters.
+
+Source: \href{https://www.guru99.com/oltp-vs-olap.html}{OLTP vs. OLAP Reference}
+
+\begin{center}
+    \begin{table}[]
+\begin{tabular}{|c|c|c|}
+\hline
+                    & \textbf{OLTP}                                                                                         & \textbf{OLAP}                                                                                                            \\ \hline
+Characteristics     & \begin{tabular}[c]{@{}c@{}}Handles a large number of small \\ transactions\end{tabular}               & \begin{tabular}[c]{@{}c@{}}Handles large volumes of data \\ with complex queries\end{tabular}                            \\ \hline
+Inserts and Updates & \begin{tabular}[c]{@{}c@{}}Short and fast inserts and \\ updates initiated by end users\end{tabular}  & \begin{tabular}[c]{@{}c@{}}Periodic long-running batch jobs \\ refresh the data\end{tabular}                             \\ \hline
+Purpose             & \begin{tabular}[c]{@{}c@{}}Control and run essential \\ business operations in real time\end{tabular} & \begin{tabular}[c]{@{}c@{}}Plan, solve problems, support decisions, \\ discover hidden insights\end{tabular}             \\ \hline
+Productivity        & \begin{tabular}[c]{@{}c@{}}Increases productivity of \\ end users\end{tabular}                        & \begin{tabular}[c]{@{}c@{}}Increases productivity of \\ business managers, \\ data analysts, and executives\end{tabular} \\ \hline
+Data view           & \begin{tabular}[c]{@{}c@{}}Lists day-to-day business \\ transactions\end{tabular}                     & \begin{tabular}[c]{@{}c@{}}Multi-dimensional view of \\ enterprise data\end{tabular}                                     \\ \hline
+\end{tabular}
+\caption{OLTP vs. OLAP}
+\end{table}
+\end{center}
+
+%---------------------------------------------------------------------
+
+\section{}
+
+After some searching, I got the below link given in the source. It mentions that the speed is 360 MB/sec.
+
+Our given Bank data is 25 TB, so we calculate as follows:
+
+\begin{equation*}
+    360 \, MB \rightarrow 1 \, sec
+\end{equation*}
+
+\begin{equation*}
+    2.5 \times 10^7 \, MB \rightarrow \, ?
+\end{equation*}
+
+\begin{equation*}
+    T = \frac{2.5 \times 10^7 \, MB \times 1 \, sec}{360 \, MB}
+\end{equation*}
+
+\begin{equation*}
+    T \approx 69,445 \, sec
+\end{equation*}
+
+This 69,445 sec compute to approximately 19.3 hours. The average environment is considered in terms of disk speed only.
+
+Source: \href{https://www.sbi.co.in/documents/39129/150893/20092019HW+RFP+SBIePay+NO.649.pdf}{Bank Reference}, \href{https://spectralogic.com/features/lto-8/}{LTO-8} \\
+%---------------------------------------------------------------------
+
+
+
+\end{document}
